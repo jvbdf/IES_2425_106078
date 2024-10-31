@@ -1,0 +1,21 @@
+- The “UserController” class gets an instance of “userRepository” through its constructor; how is
+this new repository instantiated?
+
+--   O UserController recebe uma instancia da classe UserRepository por meio do seu construtor utilizando a injeção de depedependência que é feita pela annotation @Autowired.
+Ao instanciar o controller, uma instancia de UserRepository é automaticamente criada e passada ao construtor.
+
+
+-List the methods invoked in the “userRepository” object by the “UserController”. Where are
+these methods defined?
+
+--  Os métodos invocados são save(), findAll(), findById(), delete(). Todos esses métodos estão definidos na interface CrudRepository que faz parte do Spring Data JPA.
+
+
+-  Where is the data being saved?
+
+-- Os dados serão armazenados em uma base de dados SQL. Com a utilização do JPA e Hibernate não é necessário escrever queries ou definir uma base de dados manualmente. As tabelas (entidades) definidas na aplicação são geradas automaticamente.
+
+
+- Where is the rule for the “not empty” email address defined?
+
+-- A regra que garante que o endereço de e-mail não esteja vazio é definida pela anotação @NotBlank na classe User. Se o usuário tentar enviar um e-mail em branco, a mensagem  ("Email is mandatory") será retornada como erro de validação. 
